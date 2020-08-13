@@ -4,6 +4,10 @@ body {
     background-size: cover; 
    }
 
+h4 {
+    background-color: thistle;
+}   
+
 
 .col-sm {
     /* background-color: #e6f2ff; */

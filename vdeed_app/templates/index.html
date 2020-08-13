@@ -2,23 +2,51 @@
 {% load static %}
 
 {% block title %}
-  <title>Virtuous deedsSharing 善行分享</title>
+  <title>Virtuous deeds offering 善行供养</title>
 {% endblock title %}
 
 
 {% block content %}
   <div class="container">
-    <h1>Virtuous deeds Sharing 善行分享</h1>
+    <h1 style="font-family:simhei">Virtuous deeds offering 善行供养</h1>
     <br>
     <div class="row">
-        <div class="col-sm">
-        <img src = "{% static 'images/ShiFu_LaoShi.png' %}" alt ="" class="img-fluid">
+      <img src = "{% static 'images/TripleGem.jpg' %}" alt ="" class="img-fluid">
+        <div class="col-sm">        
           {{deed1 | safe}}
           {% if hide == False %}
             <form action="" method="post">
               {% csrf_token %}
+              <h5 style="background-color: #e6ccff">
               {{ form1.as_p }}
+              </h5>
               <input type="submit" name="btnform1" value="Submit (提交)">
+            </form> 
+          {% endif %}
+        </div>
+
+        <div class="col-sm">        
+          {{deed2 | safe}}
+          {% if hide == False %}
+            <form action="" method="post">
+              {% csrf_token %}
+              <h5 style="background-color: #ffbaf7">
+              {{ form2.as_p }}
+              </h5>
+              <input type="submit" name="btnform2" value="Submit (提交)">
+            </form> 
+          {% endif %}
+        </div>
+
+        <div class="col-sm">        
+          {{deed3 | safe}}
+          {% if hide == False %}
+            <form action="" method="post">
+              {% csrf_token %}
+              <h5 style="background-color: #ffcccc">
+              {{ form3.as_p }}
+              </h5>
+              <input type="submit" name="btnform3" value="Submit (提交)">
             </form> 
           {% endif %}
         </div>
