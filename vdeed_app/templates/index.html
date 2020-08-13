@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Virtuous deedsSharing 善行分享</title>
+{% endblock title %}
+
+
+{% block content %}
+  <div class="container">
+    <h1>Virtuous deeds Sharing 善行分享</h1>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+        <img src = "{% static 'images/ShiFu_LaoShi.png' %}" alt ="" class="img-fluid">
+          {{deed1 | safe}}
+          {% if hide == False %}
+            <form action="" method="post">
+              {% csrf_token %}
+              {{ form1.as_p }}
+              <input type="submit" name="btnform1" value="Submit (提交)">
+            </form> 
+          {% endif %}
+        </div>
+    </div>
+
+    <br>
+
+  </div>
+  <!-- <script src="{% static 'scroll.js' %}"></script> -->
+ 
+{% endblock content %}
