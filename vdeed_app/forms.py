@@ -1,6 +1,44 @@
+import datetime
 from django import forms
 from vdeed_app.models import deeds1, deeds2, deeds3
-            
+from datetime import datetime, time
+
+def add_date1_needed():
+    filename = 'date1.txt'
+    file=open('D:/djangoProject/virtuous_deed_project/vdeeds/static/' + filename,'r')
+    date = file.read()
+    file.close()
+    print(date)
+    today = datetime.now().strftime ("%Y%m%d")
+    print('today', today)     
+    if today != date:
+        print('different date')
+        return True
+    else:
+        print('same date')
+        return False
+
+def write_today_date1():
+    filename = 'date1.txt'
+    today = datetime.now().strftime ("%Y%m%d")
+    file=open('D:/djangoProject/virtuous_deed_project/vdeeds/static/' + filename,'w')
+    file.write(today)
+    file.close()
+    print('date written')
+
+# Removes character at index i 
+def remove(string, i):  
+    # Characters before the i-th indexed 
+    # is stored in a variable a 
+    a = string[ : i]  
+      
+    # Characters after the nth indexed 
+    # is stored in a variable b 
+    b = string[i + 1: ] 
+      
+    # Returning string after removing 
+    # nth indexed character. 
+    return a + b                    
 
 class deeds1Form(forms.ModelForm):
     class Meta:
@@ -13,13 +51,16 @@ class deeds1Form(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'required': 'True', 'blank': 'False'}), 
             'deed': forms.Textarea(attrs={'rows': "4", 'maxlength': '250', 'class': 'form-control', 'required': 'True', 'blank': 'False'})
-        }
+        }         
 
     def clean(self):
+        date = datetime.now().strftime ("%d/%m/%Y")
+        date1 = remove(date, 6)
+        date1 = remove(date1, 6)
         cleaned_data = self.cleaned_data
         begin = '<p>'
         end = '</p> <br>'
-        cleaned_data['deed'] = begin + cleaned_data['deed'] + ' (' + cleaned_data['name'] + ')' + end
+        cleaned_data['deed'] = begin + cleaned_data['deed'] + ' (' + cleaned_data['name'] + ') ' + date1 + end
         print (cleaned_data)
         return cleaned_data
 
@@ -48,10 +89,13 @@ class deeds2Form(forms.ModelForm):
         }
 
     def clean(self):
+        date = datetime.now().strftime ("%d/%m/%Y")
+        date2 = remove(date, 6)
+        date2 = remove(date2, 6)
         cleaned_data = self.cleaned_data
         begin = '<p>'
         end = '</p> <br>'
-        cleaned_data['deed'] = begin + cleaned_data['deed'] + ' (' + cleaned_data['name'] + ')' + end
+        cleaned_data['deed'] = begin + cleaned_data['deed'] + ' (' + cleaned_data['name'] + ') ' + date2 + end
         print (cleaned_data)
         return cleaned_data
 
@@ -80,10 +124,13 @@ class deeds3Form(forms.ModelForm):
         }
 
     def clean(self):
+        date = datetime.now().strftime ("%d/%m/%Y")
+        date3 = remove(date, 6)
+        date3 = remove(date3, 6)        
         cleaned_data = self.cleaned_data
         begin = '<p>'
         end = '</p> <br>'
-        cleaned_data['deed'] = begin + cleaned_data['deed'] + ' (' + cleaned_data['name'] + ')' + end
+        cleaned_data['deed'] = begin + cleaned_data['deed'] + ' (' + cleaned_data['name'] + ') ' + date3 + end
         print (cleaned_data)
         return cleaned_data
 
