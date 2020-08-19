@@ -143,3 +143,19 @@ class deeds3Form(forms.ModelForm):
             self.fields['deed'].widget = HiddenInput()
             self.fields['name'].widget = HiddenInput()
             # or alternately:  del self.fields['fieldname']  to remove it from the form altogether. 
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+class DateForm(forms.Form):
+    date1_from = forms.DateField(widget=DateInput)
+    date1_to = forms.DateField(widget=DateInput)
+
+class Date2Form(forms.Form):
+    date2_from = forms.DateField(widget=DateInput)
+    date2_to = forms.DateField(widget=DateInput)
+
+class Date3Form(forms.Form):
+    date3_from = forms.DateField(widget=DateInput)
+    date3_to = forms.DateField(widget=DateInput)    
+    

@@ -7,57 +7,97 @@
 
 
 {% block content %}
-  <div class="container">
+  <div class="container-fluid">
     <h1 style="font-family:simhei">Virtuous Deeds Offering 善行供养</h1>
     <br>
-    <div class="row">
-      <img src = "{% static 'images/TripleGem.jpg' %}" alt ="" class="img-fluid">      
-        <div class="col-sm">      
-          {{deed1 | safe}}
-          {{text1 | safe}}
-          {% if hide == False %}
-            <form action="" method="post">
-              {% csrf_token %}
-              <h5 style="background-color: #e6ccff">
-              {{ form1.as_p }}
-              </h5>
-              <input type="submit" name="btnform1" value="Submit (供养)">
-            </form> 
-          {% endif %}
-        </div>
 
-        <div class="col-sm">        
-          {{deed2 | safe}}
-          {{text2 | safe}}
-          {% if hide == False %}
-            <form action="" method="post">
-              {% csrf_token %}
-              <h5 style="background-color: #ffbaf7">
-              {{ form2.as_p }}
-              </h5>
-              <input type="submit" name="btnform2" value="Submit (供养)">
-            </form> 
-          {% endif %}
-        </div>
+    <img src = "{% static 'images/TripleGem.jpg' %}" alt =""  class="center">      
+    <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm"> 
+          <h5 style="background-color: #ffcccc">  
+            Virtuous deeds (善行点滴) 
+          </h5>    
+            {{deed3 | safe}}
+            {{text3 | safe}}
+            {% if hide == False %}
+              <form action="" method="post">
+                {% csrf_token %}
+                <h5 style="background-color: #ffcccc">
+                {{ form3.as_p }}
+                </h5>
+                <input type="submit" name="btnform3" value="Submit (供养)">
+              </form> 
+            {% endif %}
+          </div>
 
-        <div class="col-sm">        
-          {{deed3 | safe}}
-          {{text3 | safe}}
-          {% if hide == False %}
-            <form action="" method="post">
-              {% csrf_token %}
-              <h5 style="background-color: #ffcccc">
-              {{ form3.as_p }}
-              </h5>
-              <input type="submit" name="btnform3" value="Submit (供养)">
-            </form> 
-          {% endif %}
-        </div>
+          <div class="col-sm">   
+          <h5 style="background-color: #e6ccff">  
+              OMAK (观功念恩)
+          </h5>    
+            {{deed1 | safe}}
+            {{text1 | safe}}
+            {% if hide == False %}
+              <form action="" method="post">
+                {% csrf_token %}
+                <h5 style="background-color: #e6ccff">
+                {{ form1.as_p }}
+                </h5>
+                <input type="submit" name="btnform1" value="Submit (供养)">
+              </form> 
+            {% endif %}
+          </div>
+
+          <div class="col-sm">  
+          <h5 style="background-color: #ffbaf7">  
+              Remembering Kindness (修信念恩) 
+          </h5>                 
+            {{deed2 | safe}}
+            {{text2 | safe}}
+            {% if hide == False %}
+              <form action="" method="post">
+                {% csrf_token %}
+                <h5 style="background-color: #ffbaf7">
+                {{ form2.as_p }}
+                </h5>
+                <input type="submit" name="btnform2" value="Submit (供养)">
+              </form> 
+            {% endif %}
+          </div>
     </div>
+  </div>
 
     <br>
 
   </div>
   <!-- <script src="{% static 'scroll.js' %}"></script> -->
- 
+  <script>
+  function validate()
+  {
+    var valid = true;
+    // do some validation here to decide whether the post is going to be successful or not.
+    if (valid)
+    {
+      alert("Going to post your data now!");
+      return true;
+    }
+    else
+    {
+      return false; // form won't post
+    }
+  }
+  </script>  
+
+  
 {% endblock content %}
+
+{% block script_content %}
+  {% if flower == True %}
+    <script>
+      $(function() {
+          
+          $('body').sakura();
+      });
+   </script> 
+   {% endif %}
+{% endblock script_content %}   
