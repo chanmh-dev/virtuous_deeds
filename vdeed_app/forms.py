@@ -49,8 +49,8 @@ class deeds1Form(forms.ModelForm):
             'deed': 'OMAK (观功念恩)'
         }
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'required': 'True', 'blank': 'False'}), 
-            'deed': forms.Textarea(attrs={'rows': "4", 'maxlength': '250', 'class': 'form-control', 'required': 'True', 'blank': 'False'})
+            'name': forms.TextInput(attrs={'id': 'name1', 'class': 'form-control', 'required': 'True', 'blank': 'False'}), 
+            'deed': forms.Textarea(attrs={'id': 'deed1', 'rows': "4", 'maxlength': '250', 'class': 'form-control', 'required': 'True', 'blank': 'False'})
         }         
 
     def clean(self):
@@ -84,8 +84,8 @@ class deeds2Form(forms.ModelForm):
             'deed': 'Remembering Kindness (修信念恩)'
         }
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'required': 'True', 'blank': 'False'}), 
-            'deed': forms.Textarea(attrs={'rows': "4", 'maxlength': '250', 'class': 'form-control', 'required': 'True', 'blank': 'False'})
+            'name': forms.TextInput(attrs={'id': 'name2', 'class': 'form-control', 'required': 'True', 'blank': 'False'}), 
+            'deed': forms.Textarea(attrs={'id': 'deed2', 'rows': "4", 'maxlength': '250', 'class': 'form-control', 'required': 'True', 'blank': 'False'})
         }
 
     def clean(self):
@@ -119,8 +119,8 @@ class deeds3Form(forms.ModelForm):
             'deed': 'Virtuous deeds (善行点滴)'
         }
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'required': 'True', 'blank': 'False'}), 
-            'deed': forms.Textarea(attrs={'rows': "4", 'maxlength': '250', 'class': 'form-control', 'required': 'True', 'blank': 'False'})
+            'name': forms.TextInput(attrs={'id': 'name3', 'class': 'form-control', 'required': 'True', 'blank': 'False'}), 
+            'deed': forms.Textarea(attrs={'id': 'deed3', 'rows': "4", 'maxlength': '250', 'class': 'form-control', 'required': 'True', 'blank': 'False'})
         }
 
     def clean(self):

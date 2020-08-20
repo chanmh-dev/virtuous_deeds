@@ -1,15 +1,15 @@
 body {
     background-image: url("./images/tulips1.jpg");
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;
    }
 
 
 .col-sm {
-    /* background-color: #e6f2ff; */
-     padding-top: 1em;
-     padding-bottom: 1em;
- }
+    /*background-color: #e6f2ff;*/
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
 
 
 .mqcontainer {
@@ -38,23 +38,38 @@ body {
   }
 
 .container-fluid{
-    width:3840px;    
+    width:3840;
 }
 
 @media only screen and
 (max-width : 3840px ) {
 
     .container-fluid {
-        width:90%;
+        width:95%;
     }
 
 }
 
-.dot{
-    width:35px;
-    height:35px;
-    position:absolute;
-    background: url(https://image.ibb.co/kyUHab/rose.png);
-    background-size: 100% 100%;
-  }
+.comment {
+    float: left;
+    width: 100%;
+    height: auto;
+}
 
+.comment-text-area {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+
+.textinput {
+    float: left;
+    width: 100%;
+    min-height: 75px;
+    outline: none;
+    resize: none;
+    border: 1px solid grey;
+    text-align: justify;
+    -moz-text-align-last: center; /* Firefox 12+ */
+    text-align-last: center;
+}

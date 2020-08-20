@@ -2,78 +2,137 @@
 {% load static %}
 
 {% block title %}
-  <title>Virtuous Deeds Offering 善行供养</title>
+  <title>Virtuous Deeds Offerings 善行供养</title>
 {% endblock title %}
 
 
 {% block content %}
   <div class="container-fluid">
-    <h1 style="font-family:simhei">Virtuous Deeds Offering 善行供养</h1>
+    <h1 >Virtuous Deeds Offerings 善行供养</h1>
     <br>
     <div class="row">
-      <div class="col text-center"> 
-        <img src = "{% static 'images/TripleGem.jpg' %}" alt =""  class="img-fluid " class="center">   
+      <div class="col text-center">
+        <img src = "{% static 'images/TripleGem.jpg' %}" alt =""  class="img-fluid " class="center">
+        <div class="comment">
+          {% if mobile == True %}
+            <textarea readonly class="textinput" rows="9" style="background-color: #ffe6ff">
+观功念恩是师父赐予我们翻转业力的法宝；
+善行点滴是老师给予我们累积净业的叮咛；
+二者皆是无上的财宝，
+能令自他生生世世受用不尽！
+今天就开始总结自己每天的善行，
+供养尊贵的师长佛菩萨！
+
+每日开放供养善行的时间:
+10.15pm - 10.45pm </textarea>
+		    {% else %}
+          <textarea readonly class="textinput" rows="4" style="background-color: #ffe6ff">
+观功念恩是师父赐予我们翻转业力的法宝；善行点滴是老师给予我们累积净业的叮咛；二者皆是无上的财宝，能令自他生生世世受用不尽！
+今天就开始总结自己每天的善行，供养尊贵的师长佛菩萨！
+
+每日开放供养善行的时间: 10.15pm - 10.45pm </textarea>
+        {% endif %}
       </div>
-    </div>   
+
+    </div>
+    </div>
     <div class="container-fluid">
       <div class="row">
-          <div class="col-sm"> 
-          <h5 style="background-color: #ffcccc">  
-            Virtuous deeds (善行点滴) 
-          </h5>    
+          <div class="col-sm">
+          <h5 style="background-color: #ffcccc">
+            Virtuous deeds (善行点滴)
+          </h5>
             {{deed3 | safe}}
-            {{text3 | safe}}
             {% if hide == False %}
               <form action="" method="post">
                 {% csrf_token %}
                 <h5 style="background-color: #ffcccc">
                 {{ form3.as_p }}
                 </h5>
-                <input type="submit" name="btnform3" value="Submit (供养)">
-              </form> 
+                <input type="submit" name="btnform3" value="Submit (供养)" onclick="validate3()">
+              </form>
             {% endif %}
           </div>
 
-          <div class="col-sm">   
-          <h5 style="background-color: #e6ccff">  
+          <div class="col-sm">
+          <h5 style="background-color: #e6ccff">
               OMAK (观功念恩)
-          </h5>    
+          </h5>
             {{deed1 | safe}}
-            {{text1 | safe}}
             {% if hide == False %}
               <form action="" method="post">
                 {% csrf_token %}
                 <h5 style="background-color: #e6ccff">
                 {{ form1.as_p }}
                 </h5>
-                <input type="submit" name="btnform1" value="Submit (供养)">
-              </form> 
+                <input type="submit" name="btnform1" value="Submit (供养)" onclick="validate1()">
+              </form>
             {% endif %}
           </div>
 
-          <div class="col-sm">  
-          <h5 style="background-color: #ffbaf7">  
-              Remembering Kindness (修信念恩) 
-          </h5>                 
+          <div class="col-sm">
+          <h5 style="background-color: #ffbaf7">
+              Remembering Kindness (修信念恩)
+          </h5>
             {{deed2 | safe}}
-            {{text2 | safe}}
             {% if hide == False %}
               <form action="" method="post">
                 {% csrf_token %}
                 <h5 style="background-color: #ffbaf7">
                 {{ form2.as_p }}
                 </h5>
-                <input type="submit" name="btnform2" value="Submit (供养)">
-              </form> 
+                <input type="submit" name="btnform2" value="Submit (供养)" onclick="validate2()">
+              </form>
             {% endif %}
           </div>
     </div>
   </div>
 
     <br>
-
+      {% if post_success == True %}
+        <script>
+            alert("供养成功! 愿此殊胜功德 回向法界有情 尽除一切罪障 共成无上菩提");
+        </script>
+      {% endif %} 
   </div>
+ 
   <!-- <script src="{% static 'scroll.js' %}"></script> -->
+<script>
+function validate1()
+{
+  var name = document.getElementById("name1").value;
+  var deed = document.getElementById("deed1").value;
+  
+  if (name != '' && deed != '')
+  {
+    alert("Your offerings is being submitted\n您的供养已提交");
+  }
+}
+
+function validate2()
+{
+  var name = document.getElementById("name2").value;
+  var deed = document.getElementById("deed2").value;
+  
+  if (name != '' && deed != '')
+  {
+    alert("Your offerings is being submitted\n您的供养已提交");
+  }
+}
+
+function validate3()
+{
+  var name = document.getElementById("name3").value;
+  var deed = document.getElementById("deed3").value;
+  
+  if (name != '' && deed != '')
+  {
+    alert("Your offerings is being submitted\n您的供养已提交");
+  }
+}
+</script>
+
+  <!--
   <script>
   function validate()
   {
@@ -103,4 +162,6 @@
       });
    </script> 
    {% endif %}
+
 {% endblock script_content %}   
+--> 
