@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'vdeed_app'
+    'vdeed_app',
+    'import_export',
+    'accounts',
 ]
 
 MIDDLEWARE = [

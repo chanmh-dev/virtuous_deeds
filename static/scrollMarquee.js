@@ -1,6 +1,6 @@
 $(function () {
     $('.marquee').marquee({
-        duration: 20000,
+        duration: 40000,
         duplicated: false,
         gap: 0, 
         pauseOnHover: true,

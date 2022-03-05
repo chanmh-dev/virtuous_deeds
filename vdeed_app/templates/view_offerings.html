@@ -29,7 +29,13 @@
               <p>OMAK (观功念恩):</p>
               <p> {{filtered_from_date1}} ~ {{filtered_to_date1}}</p>
               <p>Total (总数) {{total_deeds1_count}}</p>
-            </h5>        
+              <br>
+              <p>Rejoice to the top 5 contributors:</p>              
+              <p>随喜首五名供养次数最多者:</p>
+              {% for item in deeds1_top_five %}
+                <li>{{ item.name }} ({{ item.count }})</li>
+              {% endfor %}               
+            </h5>       
             {{text1 | safe}}
             <form action="" method="post">
                 {% csrf_token %}
@@ -46,6 +52,12 @@
               <p>Remembering Kindness (修信念恩):</p>
               <p> {{filtered_from_date2}} ~ {{filtered_to_date2}}</p>
               <p>Total (总数) {{total_deeds2_count}}</p>
+              <br>
+              <p>Rejoice to the top 5 contributors:</p>              
+              <p>随喜首五名供养次数最多者:</p>
+              {% for item in deeds2_top_five %}
+                <li>{{ item.name }} ({{ item.count }})</li>
+              {% endfor %}                
             </h5>             
             {{text2 | safe}}
             <form action="" method="post">
@@ -62,7 +74,13 @@
             <h5 style="background-color: #ffcccc">            
               <p>Virtuous deeds (善行点滴):</p>
               <p> {{filtered_from_date3}} ~ {{filtered_to_date3}}</p>
-              <p>Total (总数) {{total_deeds3_count}}</p>            
+              <p>Total (总数) {{total_deeds3_count}}</p>     
+              <br>
+              <p>Rejoice to the top 5 contributors:</p>              
+              <p>随喜首五名供养次数最多者:</p>
+              {% for item in deeds3_top_five %}
+                <li>{{ item.name }} ({{ item.count }})</li>
+              {% endfor %}                       
             </h5>                
             {{text3 | safe}}
             <form action="" method="post">

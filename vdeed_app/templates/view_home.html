@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title>释迦心咒</title>
+{% endblock title %} {% block additional_styles %}
+<style>
+  body {
+    min-height: 100vh;
+    background: #eaf6f6;
+  }
+
+  .main {
+    background-position: center top;
+    background-size: cover;
+    height: auto;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    width: auto;
+  }
+
+  .main .logo {
+    position: absolute;
+    color: white;
+    bottom: 8%;
+    left: 50%;
+    width: auto;
+    transform: translate(-50%, -50%);
+    background-color: gray;
+    font-family: "Ariel";
+    font-size: 55px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .main .logo {
+      font-size: 25px;
+    }
+  }
+</style>
+{% endblock %} {% block content %}
+
+<div class="container-fluid">
+  <div
+    class="main"
+    style="background-image: url('{% static 'images/buddha5.jpg' %}')"
+  >
+    <div class="container">
+      <h1 class="font-weight-bold logo">
+        释迦心咒次数:
+        <span
+          class="card-counter"
+          id="total-migtsema-counter"
+          style="color: #ffc300; font-size: 65px"
+        >
+          {{total_migtsema_counter}}
+        </span>
+      </h1>
+      <!--  H1 can have 2 designs: "logo" and "logo cursive"       -->
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $("#total-migtsema-counter").text("{{total_migtsema_counter}}");
+
+    $(".card-counter").each(function () {
+      $(this)
+        .prop("Counter", 0)
+        .animate(
+          {
+            Counter: $(this).text(),
+          },
+          {
+            duration: 3000,
+            easing: "swing",
+            step: function (now) {
+              $(this).text(Math.ceil(now));
+            },
+          }
+        );
+    });
+  });
+</script>
+
+{% endblock content %} {% block script_content %} {% endblock script_content %}
