@@ -1510,6 +1510,39 @@ fieldset:disabled .btn {
   background-size: cover;
 }
 
+.btn-div {
+  display: inline-block;
+  /*padding: 6px 12px;*/
+  padding: 0px 10px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  color: #fff;
+  background-color: #5bc0de;
+  border-color: #ccc;
+}
+
+.btn-div:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+
 #counter-label {
   position: absolute;
   top: 0px;
@@ -1517,13 +1550,12 @@ fieldset:disabled .btn {
   width: auto;
   font-size: 1.4rem;
   font: bold;
-  color: white;
-  background: gray;
 }
 
 #total-migtsema-counter {
   font-size: 1.5rem;
-  color: #ffc300;
+  font-weight: 700;
+  color: #ffd700;
 }
 
 #counter-btn {
@@ -1553,6 +1585,5 @@ fieldset:disabled .btn {
 
   #total-migtsema-counter {
     font-size: 38px;
-    color: #ffc300;
   }
 }
