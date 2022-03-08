@@ -1,13 +1,12 @@
-from dataclasses import fields
 from django.contrib.auth import password_validation
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
 
 
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(max_length=50, label="Username ( 用户名 )")
-    email = forms.EmailField(label="Email ( 电邮 )")
+    #email = forms.EmailField(label="Email ( 电邮 )")
     first_name = forms.CharField(max_length=50, label="Name ( 姓字 )")
 
     password1 = forms.CharField(
@@ -26,7 +25,7 @@ class RegisterUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'first_name',
-                  'email', 'password1', 'password2']
+                  'password1', 'password2']
 
 
 class UserLoginForm(AuthenticationForm):

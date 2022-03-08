@@ -11,11 +11,38 @@
       {{total_migtsema_counter}}
     </span>
   </div>
+  <div class="clouds">
+    <img src="../static/images/cloud1.png" style="--i: 1" ; />
+    <img src="../static/images/cloud2.png" style="--i: 2" ; />
+    <img src="../static/images/cloud3.png" style="--i: 3" ; />
+    <img src="../static/images/cloud4.png" style="--i: 4" ; />
+    <img src="../static/images/cloud5.png" style="--i: 5" ; />
+
+    <img src="../static/images/cloud1.png" style="--i: 10" ; />
+    <img src="../static/images/cloud2.png" style="--i: 9" ; />
+    <img src="../static/images/cloud3.png" style="--i: 8" ; />
+    <img src="../static/images/cloud4.png" style="--i: 7" ; />
+    <img src="../static/images/cloud5.png" style="--i: 6" ; />
+  </div>
 </header>
 
 <!-- About-->
 <section class="content-section bg-light" id="about">
   <div class="container px-4 px-lg-5 text-center">
+    <div class="bar_group">
+      <div
+        style="display: none"
+        class="bar_group__bar thick"
+        tooltip="true"
+        value="{{migtsema_target}}"
+      ></div>
+      <div
+        class="bar_group__bar thick"
+        show_values="true"
+        tooltip="true"
+        value="{{total_migtsema_counter}}"
+      ></div>
+    </div>
     <div class="content-section-heading">
       <h2>释迦牟尼佛心咒的功德</h2>
       <h2 style="color: blue">（嗡牟尼牟尼 摩诃牟尼耶 娑诃）</h2>
@@ -60,6 +87,8 @@
     </div>
   </div>
 </section>
+
+<script src="{% static 'bars.js' %}"></script>
 
 <script>
   $(document).ready(function () {
